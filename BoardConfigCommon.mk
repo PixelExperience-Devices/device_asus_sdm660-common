@@ -134,7 +134,6 @@ OVERRIDE_QCOM_HARDWARE_VARIANT := sdm660
 
 # Power
 TARGET_USES_INTERACTION_BOOST := true
-TARGET_TAP_TO_WAKE_NODE := "/proc/tpd_gesture"
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
