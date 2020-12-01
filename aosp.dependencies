@@ -1,0 +1,14 @@
+[
+  {
+    "repository"  : "kernel_asus_sdm660",
+    "target_path" : "kernel/asus/sdm660",
+    "branch"      : "eleven",
+    "remote"      : "pixel-devices"
+  },
+  {
+    "repository": "vendor_asus_sdm660-common",
+    "target_path": "vendor/asus/sdm660-common",
+    "branch": "eleven",
+    "remote": "pixel-devices-blobs"
+  }
+]
