@@ -75,8 +75,10 @@
         <param key="input_mic_max_count" value="4"/>
     </config_params>
     <acdb_ids>
+        <!-- Huaqin add for distinguish normal speaker and voice speaker id at 2018/03/07 start -->
         <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" acdb_id="14"/>
+        <!-- Huaqin add for distinguish normal speaker and voice speaker id at 2018/03/07 end -->
         <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="15"/>
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED" acdb_id="101"/>
@@ -87,17 +89,6 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT" acdb_id="150"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" acdb_id="151"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_2" acdb_id="152"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_1" acdb_id="14"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_2" acdb_id="14"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_VBAT" acdb_id="135"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1" acdb_id="10"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_2" acdb_id="10"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_VBAT" acdb_id="135"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT" acdb_id="135"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET" acdb_id="45"/>
-        <device name="SND_DEVICE_IN_HDMI_MIC" acdb_id="4"/>
-        <device name="SND_DEVICE_IN_HANDSET_TMIC_FLUENCE_PRO" acdb_id="125"/>
-        <device name="SND_DEVICE_IN_HANDSET_TMIC" acdb_id="125"/>
     </acdb_ids>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="INT0_MI2S_RX"/>
@@ -106,16 +97,23 @@
         <device name="SND_DEVICE_OUT_BT_A2DP" backend="bt-a2dp" interface="SLIMBUS_7_RX"/>
         <device name="SND_DEVICE_OUT_LINE" backend="headphones" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_ANC_HEADSET" backend="headphones" interface="INT0_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="TERT_MI2S_RX-and-INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="TERT_MI2S_RX-and-INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET" backend="speaker-and-headphones" interface="TERT_MI2S_RX-and-INT0_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" backend="headphones" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="headphones" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_LINE" backend="headphones" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" backend="headphones" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" backend="headphones" interface="INT0_MI2S_RX"/>
+	<!-- Huaqin add for ZQL1650-155 by xudayi at 2018/02/02 start -->
         <device name="SND_DEVICE_OUT_HANDSET" interface="INT0_MI2S_RX"/>
+        <!-- Huaqin add for config new audioboard xml by xudayi at 2018/03/05 start -->
         <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" interface="TERT_MI2S_RX"/>
+        <!-- Huaqin add for config new audioboard xml by xudayi at 2018/03/05 end -->
+	<!-- Huaqin add for ZQL1650-155 by xudayi at 2018/02/02 end -->
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_1" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_2" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" interface="TERT_MI2S_RX"/>
@@ -125,16 +123,24 @@
         <device name="SND_DEVICE_OUT_VOICE_HANDSET" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_VBAT" interface="TERT_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
+        <!-- Huaqin add for config new audioboard xml by xudayi at 2018/03/05 start -->
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" backend="speaker" interface="TERT_MI2S_RX"/>
+        <!-- Huaqin add for config new audioboard xml by xudayi at 2018/03/05 end -->
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" interface="TERT_MI2S_RX-and-HDMI"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT" interface="TERT_MI2S_RX-and-DISPLAY_PORT"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" backend="speaker-and-bt-sco" interface="SLIMBUS_0_RX-and-SLIMBUS_7_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="SLIMBUS_0_RX-and-SLIMBUS_7_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP" interface="TERT_MI2S_RX-and-SLIMBUS_7_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" interface="INT0_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
         <device name="SND_DEVICE_OUT_ANC_FB_HEADSET" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_ANC_FB_HEADSET" interface="INT0_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_ANC_HANDSET" interface="INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED" interface="TERT_MI2S_RX"/>
@@ -142,6 +148,7 @@
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT" interface="TERT_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT" interface="TERT_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
         <device name="SND_DEVICE_OUT_SPEAKER_WSA" interface="INT4_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_WSA" interface="INT4_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA" interface="INT4_MI2S_RX"/>
@@ -207,8 +214,10 @@
         <device name="SND_DEVICE_IN_UNPROCESSED_THREE_MIC" interface="INT3_MI2S_TX"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_QUAD_MIC" interface="INT3_MI2S_TX"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC" interface="INT3_MI2S_TX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 start -->
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_HEADPHONES" backend="speaker-and-headphones" interface="TERT_MI2S_RX-and-INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_ANC_HEADSET" backend="speaker-and-headphones" interface="TERT_MI2S_RX-and-INT0_MI2S_RX"/>
+        <!-- Huaqin add for TT bug id 1165336 by xudayi at 2018/03/15 end -->
         </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
