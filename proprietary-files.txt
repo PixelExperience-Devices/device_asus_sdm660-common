@@ -702,8 +702,8 @@ vendor/bin/time_daemon|a213fb73b9b1cbbdb631851a337ffd64ae08367e
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|216cbb72e22a0ca76d766dc0b84055c5b31e0a4c
 
-# Wifi - from LA.UM.8.2.1.r1-05600-sdm660
-vendor/bin/cnss-daemon|a7b196d0c8204f6fbe445710e8d062d0c2d9b42f
+# WiFi - from LA.UM.9.12.r1-10800-SMxx50.0
+vendor/bin/cnss-daemon|78ebe10a7a46e22d36864406b23f4164b522115c
 
 # WiFi Display
 system/bin/wfdservice
