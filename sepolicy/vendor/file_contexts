@@ -32,3 +32,6 @@
 
 # Thermal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.qti            u:object_r:hal_thermal_default_exec:s0
+
+# metadata
+/dev/block/platform/soc/c0c4000.sdhci/by-name/asusfw                  u:object_r:metadata_block_device:s0
