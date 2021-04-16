@@ -204,3 +204,6 @@ ro.zram.periodic_wb_delay_hours=24
 # Lmk
 ro.config.low_ram = false
 ro.lmk.log_stats = true
+
+# Seamless transfer
+sys.fflag.override.settings_seamless_transfer=true
