@@ -443,3 +443,8 @@ service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-servi
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10
     task_profiles ServiceCapacityLow
+
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
