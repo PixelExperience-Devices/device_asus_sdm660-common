@@ -79,8 +79,9 @@
       "Name": "TASchedtuneBoost",
       "Path": "/dev/stune/top-app/schedtune.boost",
       "Values": [
-        "30",
-        "10"
+        "10",
+        "1",
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -194,7 +195,7 @@
       "PowerHint": "INTERACTION",
       "Node": "TASchedtuneBoost",
       "Duration": 0,
-      "Value": "30"
+      "Value": "1"
     },
     {
       "PowerHint": "INTERACTION",
@@ -290,7 +291,7 @@
       "PowerHint": "AUDIO_LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 0,
-      "Value": "43"
+      "Value": "44"
     },
     {
       "PowerHint": "AUDIO_STREAMING",
