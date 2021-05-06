@@ -37,6 +37,9 @@ on init
     write /dev/stune/top-app/schedtune.boost 5
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
+    # Setup dynamic stune boost
+    write /dev/stune/top-app/schedtune.sched_boost 15
+
     # Setup permission for Power HAL
     chown system system /dev/stune/top-app/schedtune.boost
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
