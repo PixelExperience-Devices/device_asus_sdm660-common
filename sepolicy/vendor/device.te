@@ -2,3 +2,4 @@
 type cdfinger_device, dev_type;
 type fingerprintd_device, dev_type;
 type focaltech_device, dev_type;
+type latency_device, dev_type;
