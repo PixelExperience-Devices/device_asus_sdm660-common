@@ -163,7 +163,7 @@
       "Name": "CPUBWIOPercent",
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/io_percent",
       "Values": [
-        "80",
+        "85",
         "50"
       ],
       "ResetOnInit": true
@@ -173,11 +173,8 @@
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq",
       "Values": [
         "6881",
-        "5931",
-        "4943",
-        "2929",
-        "2597",
-        "2086"
+        "3879",
+        "762"
       ],
       "ResetOnInit": true
     },
@@ -276,6 +273,12 @@
     },
     {
       "PowerHint": "INTERACTION",
+      "Node": "CPUBWHystLength",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "INTERACTION",
       "Node": "CPUBWHistMemory",
       "Duration": 0,
       "Value": "0"
@@ -284,7 +287,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "5931"
+      "Value": "3879"
     },
     {
       "PowerHint": "LAUNCH",
@@ -307,6 +310,12 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWHystTriggerCount",
+      "Duration": 3000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBWHystLength",
       "Duration": 3000,
       "Value": "0"
     },
@@ -380,7 +389,7 @@
       "PowerHint": "CAMERA_STREAMING_MID",
       "Node": "CPUBWIOPercent",
       "Duration": 0,
-      "Value": "80"
+      "Value": "85"
     },
     {
       "PowerHint": "CAMERA_SHOT",
