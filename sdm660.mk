@@ -125,6 +125,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     vendor.qti.hardware.display.allocator-service \
     android.hardware.memtrack@1.0-impl \
+    vendor.display.config@1.0.vendor \
     android.hardware.memtrack@1.0-service \
     android.frameworks.displayservice@1.0
 
