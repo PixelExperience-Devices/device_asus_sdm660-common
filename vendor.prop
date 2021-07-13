@@ -80,6 +80,7 @@ vendor.voice.path.for.pcm.voip=false
 persist.vendor.service.bdroid.sibs=false
 persist.vendor.bt.aac_frm_ctl.enabled=true
 vendor.qcom.bluetooth.soc=cherokee
+persist.vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 persist.vendor.camera.eis.enable=1
