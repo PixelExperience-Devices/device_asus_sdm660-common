@@ -28,6 +28,7 @@
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.qcom.asus.rc
+import /vendor/etc/init/hw/nvram_btwifi.rc
 import /vendor/etc/init/hw/init.device.rc
 import /vendor/etc/init/android.hardware.sensors@1.0-service.rc
 import /vendor/etc/init/android.hardware.audio.service.rc
