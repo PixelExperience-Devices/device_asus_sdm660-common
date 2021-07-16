@@ -6,6 +6,12 @@
     "remote"      : "pixel-devices"
   },
   {
+    "repository": "Gaurav241/packages_apps_GoogleCamera",
+    "target_path": "packages/apps/GoogleCam",
+    "branch": "eleven",
+    "remote": "github"
+  },
+  {
     "repository": "vendor_asus_sdm660-common",
     "target_path": "vendor/asus/sdm660-common",
     "branch": "eleven",
