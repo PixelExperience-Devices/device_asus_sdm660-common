@@ -6,6 +6,9 @@
 bt.max.hfpclient.connections=1
 vendor.bluetooth.soc=cherokee
 
+# BPF
+ro.kernel.ebpf.supported=true
+
 # Camera
 persist.vendor.camera.privapp.list=org.codeaurora.snapcam
 persist.camera.privapp.list=org.codeaurora.snapcam
