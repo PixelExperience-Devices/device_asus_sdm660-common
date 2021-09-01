@@ -456,7 +456,6 @@ vendor/bin/ATFWD-daemon
 vendor/bin/hw/qcrild
 vendor/bin/netmgrd
 vendor/bin/port-bridge
-vendor/bin/qrtr-ns
 vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
@@ -483,7 +482,6 @@ vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqcmaputils.so
 vendor/lib64/libqcrilFramework.so
-vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
 vendor/lib64/libril-qc-hal-qmi.so
 vendor/lib64/libril-qc-ltedirectdisc.so
@@ -514,6 +512,12 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/radio/qcril_database/qcril.db
+
+# QRTR - from jasmine V11.0.21.0.QDIMIXM
+vendor/bin/qrtr-cfg|f2433cbff23c57f531882a70e33e066f9f02d919
+vendor/bin/qrtr-lookup|54e4244db1166ee9ebc92218b3214eedaee9b42d
+vendor/bin/qrtr-ns|90a5a0c488b09fed69e4f402eb30d0c22340fcba
+vendor/lib64/libqrtr.so|9addbb504885bb2a82e0b19e38077742bc48c10f
 
 # Radio - IMS
 -product/app/imssettings/imssettings.apk
