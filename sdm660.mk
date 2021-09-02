@@ -339,9 +339,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf
 
-# Radio
+# RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
+    android.hardware.radio@1.5 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.secure_element@1.1 \
+    rild \
+    libavservices_minijail.vendor \
     librmnetctl
 
 # Recovery
