@@ -27,32 +27,49 @@
 #
 #
 
-import /vendor/etc/init/hw/init.target_dap.rc
-import /vendor/etc/init/hw/init.target_ota.rc
+import /vendor/etc/init/vendor.qti.cdsprpc-service.rc
 
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_apr audio_wglink audio_adsp_loader audio_q6_pdr audio_q6_notifier audio_q6 audio_usf audio_native audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_digital_cdc audio_analog_cdc audio_msm_sdw audio_wcd_cpe audio_cpe_lsm audio_wcd9335 audio_machine_sdm660 audio_wcd934x audio_mbhc audio_wcd9xxx audio_wcd_core
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-    mkdir /dsp 0771 media media
+    write /proc/sys/kernel/sched_boost 1
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
     write /dev/stune/background/schedtune.colocate 0
-    write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
+
+    write /sys/devices/virtual/graphics/fb0/idle_time 100
+
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
+on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    start vendor.qseecomd
-    start keymaster-4-0
+    mount_all /vendor/etc/fstab.qcom
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/bms 0700 root system
+    restorecon_recursive /mnt/vendor/persist
+    write /sys/kernel/boot_adsp/boot 1
 
-on early-fs
-    start vold
+    mkdir /mnt/vendor/dsp 0770 root root
+    copy /vendor/dsp/cdsp/fastrpc_shell_3 /mnt/vendor/dsp/fastrpc_shell_3
+    chmod 0644 /mnt/vendor/dsp/fastrpc_shell_3
+    mount none /mnt/vendor/dsp/fastrpc_shell_3 /vendor/dsp/cdsp/fastrpc_shell_3 bind
 
 on post-fs
+    start vendor.qseecomd
+    wait_for_prop vendor.sys.listeners.registered true
     write /dev/ipa 1
 
 on init
@@ -64,7 +81,9 @@ on post-fs-data
     mkdir /data/vendor/tombstones/wcnss 0771 system system
     mkdir /data/vendor/tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /data/vendor/misc/seemp 0700 system system
+
+    mkdir /persist/qti_fp 0700 system system
+    mkdir /mnt/vendor/persist/fpc 0770 system system  
 
 on early-boot
     chown system system /mnt/vendor/persist/sensors
@@ -73,13 +92,14 @@ on early-boot
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
 on boot
-    start rmt_storage
-    start rfs_access
+    start vendor.rmt_storage
+    start vendor.rfs_access
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
+    write /dev/cpuset/restricted/cpus 0-7
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
@@ -98,11 +118,14 @@ on boot
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
 
+    # Enable camera read sensors data
+    setprop persist.camera.gyro.disable 0
+
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 
-#Load WLAN driver
-   insmod /vendor/lib/modules/qca_cld3_wlan.ko
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
@@ -200,32 +223,21 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    oneshot
 #
 
-#service adsprpcd_root /vendor/bin/adsprpcd
-#   class main
-#   user media
-#   group media
+service adsprpcd_root /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
 
-#service adsprpcd /vendor/bin/adsprpcd audiopd
-#   class main
-#   user media
-#   group media
+service adsprpcd /vendor/bin/adsprpcd audiopd
+   class main
+   user media
+   group media
 
 service hbtp /system/vendor/bin/hbtp_daemon
     class main
     user system
     group system
     disabled
-
-service audiod /system/vendor/bin/audiod
-   class late_start
-   user system
-   group system
-
-#service vendor.cdsprpcd /vendor/bin/cdsprpcd
-#   class main
-#   user system
-#   group system
-#   disabled
 
 #
 #service usf_tester /system/vendor/bin/usf_tester
@@ -342,18 +354,6 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
     group system
     disabled
 
-
-service energy-awareness /system/vendor/bin/energy-awareness
-    class main
-    user system
-    group system
-    oneshot
-
-service mdtpd /system/vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
 service vendor.pd_mapper /system/vendor/bin/pd-mapper
      class core
 
@@ -371,13 +371,7 @@ service vendor.pd_mapper /system/vendor/bin/pd-mapper
 #   disabled
 
 on property:vold.decrypt=trigger_restart_framework
-   start cnss_diag
-
-service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
-   class main
-   user system
-   group system wifi inet sdcard_rw media_rw diag
-   oneshot
+   restart vendor.camera-provider-2-4
 
 service dcvs-sh /vendor/bin/init.qti.dcvs.sh
     class late_start
@@ -439,12 +433,6 @@ on charger
 #    socket vqtss stream 0660 system system
 #    user system
 #    group system
-
-service seempd /system/bin/seempd
-    class late_start
-    user system
-    group system sdcard_rw
-    socket seempdw dgram 0666 system system
 
 service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
