@@ -1,6 +1,7 @@
 # Camera
 persist.vendor.camera.hdring                  u:object_r:vendor_camera_prop:s0
 persist.vendor.camera.pickres.prop_hdr        u:object_r:vendor_camera_prop:s0
+persist.camera.gyro.disable                   u:object_r:vendor_camera_prop:s0
 
 # Fingerprint
 property.cdfinger.enablesave                  u:object_r:vendor_fingerprint_prop:s0
