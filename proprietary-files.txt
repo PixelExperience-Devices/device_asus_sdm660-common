@@ -922,6 +922,13 @@ system_ext/lib64/vendor.qti.latency@2.1.so|7f5acd3205a45bca493d757d97da4a6b80656
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|60af440aae61fcd6939af56a0b94d9b9ef5ebd55
 -system/framework/tcmclient.jar|cdd1ea7143a5a7acc3909b5cfa706650179647c7
 
+# SSR - from LA.UM.9.1.r1-10900-SMxxx0.0
+vendor/bin/ssr_diag|cf32afa48dc74c45cc5516965bc4a9c65f20921e
+vendor/bin/ssr_setup|2b67755df4ca2ac73de3c187f2671195924ede9b
+vendor/bin/subsystem_ramdump|1614b22ab543c259d1e0687a0bfaa02f97414cba
+vendor/lib/libsubsystem_control.so|c51ec39cd5578e6078403e3855fa163a19da74e8
+vendor/lib64/libsubsystem_control.so|170458c913f84f3a5aea63318536a81afa1b6693
+
 # Thermal - from LA.UM.9.12.r1-10800-SMxx50.0
 vendor/bin/thermal-engine|dcac44ec87aae10821d3aabd80684998a10bdfab
 vendor/etc/init/init_thermal-engine.rc|a0310f09da9f09c67e110607b73aec9f9f981c4c
