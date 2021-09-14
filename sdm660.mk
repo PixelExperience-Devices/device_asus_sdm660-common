@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5 \
     vendor.qti.hardware.camera.device@1.0
 
+# Capability Configstore
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true

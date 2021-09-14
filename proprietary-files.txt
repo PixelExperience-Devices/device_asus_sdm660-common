@@ -119,6 +119,11 @@ product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 # Camera-sensors - from LA.UM.9.6.2.r1-04100-89xx.0
 vendor/lib/libmmcamera_ppeiscore.so|986c8e050e75bdc3fe5ee442efb94baa83d1813c
 
+# Capability Configstore - from LA.UM.9.12.r1-10800-SMxx50
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service|0b729eef1d4e819db62fd771b66979eaee3566ef
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc|4ede0250585a44b01d351bbc301d7a13cc3d783d
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|52006534d0d9a9093afce38414bd385f5193cec2
+
 # Charger - from LA.UM.8.2.1.r1-05600-sdm660
 vendor/bin/hvdcp_opti|7e2c6def67e8d3eccb7c2df80fbe73652aef2a0e
 
