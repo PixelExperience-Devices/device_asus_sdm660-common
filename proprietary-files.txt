@@ -457,6 +457,19 @@ vendor/lib64/libOmxG711Dec.so|81ab4a21fc89abbc3f912249c256c976006bdfe1
 vendor/lib64/libOmxQcelp13Dec.so|e40490101a4e93ca1df302a84139e61be860f6a3
 vendor/lib64/libOmxWmaDec.so|fee4244a809fd37843411d6006ca7be6b22113ca
 
+# MMI - from LA.UM.9.12.r1-10800-SMxx50.0
+vendor/bin/hw/vendor.qti.hardware.factory@1.0-service|4476a9fc729cc7c26869c087d86dcc4ebfe6a5d3
+vendor/bin/mmid|d87d6ec1d964ef6c34633fdd9924155f07e0b55b
+vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc|b47de7097f6b81ad6a6b05f70a2678861fda69fb
+vendor/etc/permissions/android.hardware.light.xml|4d81a6a9dd33a363d5467d49cd8ea1d9b70e647e
+vendor/etc/permissions/vendor.qti.hardware.factory.xml|bedb01aed43b95943ac60f80cf351742ccb4a072
+vendor/lib64/vendor.qti.hardware.factory@1.0.so|35d6d76595d1b44867cffab0d1dcb0163090de32
+vendor/lib64/vendor.qti.hardware.factory@1.1.so|8c262ed5ab17f53a7b1da4586d88f48595892c54
+
+# MM OSAL - from LA.UM.9.6.2.r1-04100-89xx.0
+vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
+vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
+
 # NFC
 vendor/lib/libpn553_fw.so
 
