@@ -409,6 +409,9 @@ vendor/lib64/libtinyxml2_1.so|92101861d95cbdf9625d192d0b2295baa5960b68
 vendor/lib/hw/vulkan.adreno.so|5143d4e35f249031b7c9b9270b6a59c8426f3be5
 vendor/lib64/hw/vulkan.adreno.so|3237ce301808220851dea5b4d6f8c0ba7ea97c02
 
+# IRQ balance - from LA.UM.8.2.r1-06700-sdm660.0
+vendor/bin/msm_irqbalance|0e967f5c7eaf8d863a50996459101be47adf96a2
+
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
@@ -484,29 +487,9 @@ system_ext/bin/nvram_btwifi|ba3d16f721dd4d71e0aa150a5a9cf710ae6af99f
 # NVRAM (dependency) - from LA.UM.9.6.2.r1-04100-89xx.0
 system_ext/lib64/libmmi.so|1b18620366247999153059a6aa81556a7c21eac1
 
-# Perf
-vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
-vendor/bin/msm_irqbalance
-vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
-vendor/lib/libperfconfig.so
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-util.so
-vendor/lib64/libperfconfig.so
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-perfd.so
-vendor/lib64/libqti-util.so
-
-# Perf-Configs - from LA.UM.9.12.r1-10800-SMxx50.0
-vendor/etc/perf/commonresourceconfigs.xml|459a18579580713fd839f93c86d6b1f7f028be1e
-
-# Perf-Configs -from X00TD - (Modified for K4.19)
-vendor/etc/perf/perfconfigstore.xml|93c6416f3347a0b2cff778ba6d6a58873514bdc9
-vendor/etc/perf/targetresourceconfigs.xml|50eb2e60eb50a1d27b476c7aeb98ecb612df7eee
-vendor/etc/perf/perfboostsconfig.xml|1b925efc5be95c1fbcec228a609ffa59b1f6ecc9
-vendor/etc/perf/targetconfig.xml|376ae331df9d6c30b6208f25d04ae4ea11c0e2ea
+# Perf - from LA.UM.8.2.r1-06700-sdm660.0
+vendor/lib/libqti-perfd-client.so|93b4806dd64f7b9a832d2b1999f6fa6413c56a48
+vendor/lib64/libqti-perfd-client.so|7089fa216b06fc78127b51df6cade6518886a463
 
 # Peripheral manager - from LA.UM.9.12.r1-10800-SMxx50.
 vendor/bin/pm-proxy|3182c937d93cc02c6721c053f57fc6794ad7edb3
