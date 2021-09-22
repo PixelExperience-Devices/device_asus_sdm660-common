@@ -27,6 +27,8 @@
 #
 #
 
+import /vendor/etc/init/vendor.qti.adsprpc-service.rc
+import /vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
 import /vendor/etc/init/vendor.qti.cdsprpc-service.rc
 
 on early-init
@@ -255,16 +257,6 @@ service vendor.qseecomd /vendor/bin/qseecomd
 #    class core
 #    oneshot
 #
-
-service adsprpcd_root /vendor/bin/adsprpcd
-   class main
-   user media
-   group media
-
-service adsprpcd /vendor/bin/adsprpcd audiopd
-   class main
-   user media
-   group media
 
 service hbtp /system/vendor/bin/hbtp_daemon
     class main
