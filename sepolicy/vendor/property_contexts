@@ -14,3 +14,6 @@ ro.btmac                           u:object_r:nvram_btwifi_prop:s0
 ro.wifimac                         u:object_r:nvram_btwifi_prop:s0
 sys.nvram.btmac                    u:object_r:nvram_btwifi_prop:s0
 sys.nvram.wifimac                  u:object_r:nvram_btwifi_prop:s0
+
+# Power
+vendor.powerhal.                        u:object_r:vendor_power_prop:s0
