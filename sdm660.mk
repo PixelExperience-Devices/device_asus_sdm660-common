@@ -226,7 +226,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.asus_sdm660
+    android.hardware.lights-service.asus_sdm660
 
 # Media
 PRODUCT_PACKAGES += \

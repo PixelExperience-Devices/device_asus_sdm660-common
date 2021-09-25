@@ -15,7 +15,7 @@
 /(vendor|system/vendor)/bin/mutualex									u:object_r:vendor_mutualex_exec:s0
 
 # Light HAL
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.asus_sdm660			u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.asus_sdm660                           u:object_r:hal_light_default_exec:s0
 
 # Nvram
 /(system_ext|system/system_ext)/bin/nvram_btwifi							u:object_r:nvram_btwifi_exec:s0
