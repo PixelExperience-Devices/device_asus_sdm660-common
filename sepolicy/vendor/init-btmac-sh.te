@@ -1,0 +1,1 @@
+allow init-btmac-sh nvram_btwifi_prop:file { getattr  map  open  read };

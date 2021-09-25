@@ -108,3 +108,9 @@ mode: 0771
 user: AID_SYSTEM
 group: AID_SYSTEM
 caps: 0
+
+[vendor/dsp/]
+mode: 0771
+user: AID_MEDIA
+group: AID_MEDIA
+caps: 0

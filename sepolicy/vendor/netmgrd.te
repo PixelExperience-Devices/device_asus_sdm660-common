@@ -1,0 +1,6 @@
+allow netmgrd init:unix_stream_socket { connectto };
+allow netmgrd property_socket:sock_file { write };
+allow netmgrd sysfs:file { open  read };
+allow netmgrd vendor_data_ko_prop:property_service { set };
+allow netmgrd vendor_default_prop:property_service { set };
+allow netmgrd diag_device:chr_file { read };
