@@ -590,13 +590,15 @@ vendor/lib/hw/sensors.sdm660_64.so
 vendor/lib/libsensor_reg.so
 vendor/lib/libsensor1.so
 vendor/lib/sensors.native.so
-vendor/lib/sensors.ssc.so
 vendor/lib64/hw/activity_recognition.sdm660.so
 vendor/lib64/hw/sensors.sdm660_64.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensor1.so
 vendor/lib64/sensors.native.so
-vendor/lib64/sensors.ssc.so
+
+# Sensors - from PL2_sprout-user 10 QKQ1.190828.002 00WW_4_150
+vendor/lib/sensors.ssc.so|bee13b2ad7f1ef0d2cf63708fa38ad76877ea287
+vendor/lib64/sensors.ssc.so|42577aa881baa287ec037c0e59972ad0e0358b08
 
 # Soter - from ddv_sprout 11-RKQ1.210607.001-00WW_3_440-release-keys
 system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar|83227d66df8f047d69f5b90fe16339794fa75ce3
