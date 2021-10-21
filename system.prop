@@ -31,7 +31,7 @@ persist.vendor.overlay.izat.optin=rro
 debug.sf.disable_backpressure=1
 debug.sf.latch_unsignaled=0
 persist.demo.hdmirotationlock=false
-persist.hwc.enable_vds=1
+persist.hwc.enable_vds=0
 sdm.debug.disable_skip_validate=1
 
 # Media
