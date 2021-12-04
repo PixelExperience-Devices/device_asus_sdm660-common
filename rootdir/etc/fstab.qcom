@@ -26,3 +26,4 @@
 
 # ZRAM
 /dev/block/zram0                                                      none                   swap   defaults                                                                                         zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
+
