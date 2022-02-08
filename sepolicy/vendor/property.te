@@ -1,6 +1,6 @@
-type nvram_btwifi_prop, property_type;
-type btmac_prop, property_type;
-type nfc_sensors_prop, property_type;
-type vendor_camera_prop, property_type;
-type vendor_fingerprint_prop, property_type;
-type vendor_power_prop, property_type;
+vendor_internal_prop(nvram_btwifi_prop)
+vendor_internal_prop(btmac_prop)
+vendor_internal_prop(nfc_sensors_prop)
+vendor_internal_prop(vendor_camera_prop)
+vendor_internal_prop(vendor_fingerprint_prop)
+vendor_internal_prop(vendor_power_prop)
