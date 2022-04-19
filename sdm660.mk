@@ -118,6 +118,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
+# Cgroup and task_profiles
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true
