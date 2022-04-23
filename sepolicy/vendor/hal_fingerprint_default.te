@@ -29,4 +29,4 @@ allow hal_fingerprint_default fingerprintd_data_file:dir create_dir_perms;
 r_dir_file(hal_fingerprint_default, firmware_file)
 r_dir_file(hal_fingerprint_default, sysfs_usb_supply)
 
-set_prop(hal_fingerprint_default, vendor_fingerprint_prop)
+set_prop(hal_fingerprint_default, vendor_fp_prop)
