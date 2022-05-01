@@ -29,7 +29,6 @@ persist.vendor.overlay.izat.optin=rro
 # Graphics
 debug.sf.latch_unsignaled=0
 persist.demo.hdmirotationlock=false
-persist.hwc.enable_vds=0
 sdm.debug.disable_skip_validate=1
 
 # IORap app launch prefetching using Perfetto traces and madvise
