@@ -431,6 +431,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.asus_sdm660
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.qti
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.asus_sdm660
@@ -439,10 +443,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION=/dev/block/bootdevice/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
-
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.asus_sdm660.qti
 
 # Vibrator
 PRODUCT_PACKAGES += \
