@@ -160,7 +160,7 @@ void QCamera3CropRegionMapper::toActiveArray(int32_t& crop_left, int32_t& crop_t
 void QCamera3CropRegionMapper::toSensor(int32_t& crop_left, int32_t& crop_top,
         int32_t& crop_width, int32_t& crop_height)
 {
-    float tmpLeft, tmpTop, tmpWidth, tmpHeight;
+   float tmpLeft, tmpTop, tmpWidth, tmpHeight;
 
     if (mSensorW == 0 || mSensorH == 0 ||
             mActiveArrayW == 0 || mActiveArrayH == 0) {
