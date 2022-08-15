@@ -41,7 +41,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@5.0-impl
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
     audio_amplifier.sdm660 \
     audio.bluetooth.default \
     audio.primary.sdm660 \
