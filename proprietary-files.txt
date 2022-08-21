@@ -298,10 +298,11 @@ system_ext/lib64/fm_helium.so|68702cf4304128663a1578150a1ed8063d93ca73
 system_ext/lib64/libfm-hci.so|0da384e2fd4809bb39a36fb25d3c6c0325cea0c3
 system_ext/lib64/vendor.qti.hardware.fm@1.0.so|b7dd1354a1415cf49b96b6bb0cc44920c41d2aab
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+# Gatekeeper - from S62Pro RKQ1.210406.002
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|2e33e885b92e413440511049025497945d6b8484
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|1b8d5f58fe0a57906acf72b862c16a2521daa97b
+vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so|335cc2f4e263b4c20b2b7ad5cd6c39c68cdea7ba
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so|eaf70216b4e53f409c22764b272b79cd60a4b714
 
 # GPS - from LA.UM.9.12.r1-10800-SMxx50.0
 vendor/bin/garden_app|9d393123de7cf2f908633128645d396cdbae9209
@@ -414,17 +415,18 @@ vendor/lib64/hw/vulkan.adreno.so|3237ce301808220851dea5b4d6f8c0ba7ea97c02
 # IRQ balance - from LA.UM.8.2.r1-06700-sdm660.0
 vendor/bin/msm_irqbalance|0e967f5c7eaf8d863a50996459101be47adf96a2
 
-# Keymaster
-vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
-vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
-vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterutils.so
-vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
-vendor/lib64/libkeymasterdeviceutils.so
-vendor/lib64/libkeymasterprovision.so
-vendor/lib64/libkeymasterutils.so
+# Keymaster - from S62Pro RKQ1.210406.002
+vendor/bin/hw/android.hardware.keymaster@3.0-service-qti|002c638011b1936fecaa896874d3361ec68eaa46
+vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so|a3c2f2a5006a85015b6081136e1b52d22ef24f10
+vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so|ce2b3776fb2e69f893cab0c2fda751b493b1a7be
+vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc|573b7392c8997008204081165cfe81a11080745d
+vendor/lib64/libqcbor.so|7da5294a577f5a71ede5b3804a026bf69bd025ee
+vendor/lib/libkeymasterdeviceutils.so|a0de8c0055d2cfac9202d8eef88854c1e9795ff4
+vendor/lib/libkeymasterprovision.so|c16328226bb07371a4928906bd70888bbee27895
+vendor/lib/libkeymasterutils.so|a2f7e894af47c33c8bf700b5a1e0a676196affde
+vendor/lib64/libkeymasterdeviceutils.so|6fd0b0e1b30c4e6c5272794896306596880c657b
+vendor/lib64/libkeymasterprovision.so|d6c95d3543c707df133d50764f647e5f07adb82b
+vendor/lib64/libkeymasterutils.so|2392abef423c0610d9625670f1ff3063532e9bc1
 
 # Listen - from LA.UM.9.6.2.r1-04100-89xx.0
 vendor/lib/hw/sound_trigger.primary.msm8937.so:vendor/lib/hw/sound_trigger.primary.sdm660.so|c906ffb16c5f82536516b10b9987a58df7081e56
@@ -932,7 +934,6 @@ vendor/etc/ssg/ta_config.json|e18554b038da3737b7352d1271e5fde9c789c9df
 vendor/etc/ssg/tz_whitelist.json|c0dc4f4cfee20db5993eb5142e362cba7dfaecd6
 vendor/lib64/libminkdescriptor.so|6f8f11ee5cbfa618eed75d317adf734550a51182
 vendor/lib64/libnative-api.so|09c8712984bb02dbf43c536e7835a7307b5115e8
-vendor/lib64/libqcbor.so|c7db76dc44c7f492791aa27a18a0a5035f21b062
 
 # TFTP - from LA.UM.9.12.r1-10800-SMxx50.0
 vendor/bin/tftp_server|f096a58e024ef6d1ad78da49388c183747d384da
