@@ -14,17 +14,11 @@
 # CNE
 /(vendor|system/vendor)/bin/mutualex									u:object_r:vendor_mutualex_exec:s0
 
-# Nvram
-/(system_ext|system/system_ext)/bin/nvram_btwifi							u:object_r:nvram_btwifi_exec:s0
-
 # Persist
 /persist(/.*)?												u:object_r:mnt_vendor_file:s0
 
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.asus_sdm660-libperfmgr               u:object_r:hal_power_default_exec:s0
-
-# Scripts
-/(vendor|system/vendor)/bin/init\.btmac\.sh								u:object_r:init-btmac-sh_exec:s0
 
 # Sensors
 /sys/devices/virtual/input/input[0-9]+/stk3x[0-9]x-light(/.*)?						u:object_r:sysfs_sensors:s0

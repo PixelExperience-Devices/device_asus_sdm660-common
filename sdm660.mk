@@ -273,10 +273,6 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
-# NVRAM
-PRODUCT_PACKAGES += \
-    nvram_btwifi.rc
-
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -394,7 +390,6 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.btmac.sh \
     init.class_main.sh \
     init.qcom.post_boot.sh \
     init.qti.dcvs.sh \
