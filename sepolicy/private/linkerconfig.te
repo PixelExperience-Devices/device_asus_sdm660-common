@@ -1,0 +1,2 @@
+allow odrefresh self:capability sys_admin;
+allow odrefresh self:capability kill;
