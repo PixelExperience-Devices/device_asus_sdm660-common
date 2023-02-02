@@ -30,6 +30,10 @@ ro.vendor.use_data_netmgrd=true
 vendor.display.enable_default_color_mode=1
 vendor.gralloc.enable_fb_ubwc=1
 vendor.display.disable_skip_validate=1
+persist.hwc.mdpcomp.enable=true
+
+# FM
+vendor.hw.fm.init=0
 
 # GMS
 ro.com.google.clientidbase.ms=android-asus-tpin
@@ -45,6 +49,9 @@ debug.sf.latch_unsignaled=0
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 sdm.debug.disable_skip_validate=1
+
+# IMS
+persist.dbg.ims_volte_enable=1
 
 # Media
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
