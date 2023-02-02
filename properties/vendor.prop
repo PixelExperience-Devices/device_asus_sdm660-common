@@ -120,11 +120,6 @@ vendor.fm.a2dp.conc.disabled=false
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
-# GMS
-ro.com.google.clientidbase.ms=android-asus-tpin
-ro.com.google.rlzbrandcode=ASUP
-ro.com.google.rlz_ap_whitelist=y0,y5,y6,y7,y9
-
 # NTP Server
 persist.backup.ntpServer=0.pool.ntp.org
 
