@@ -2,6 +2,10 @@
 # system.prop for sdm660
 #
 
+# Audio
+audio.sys.noisy.broadcast.delay=600
+audio.sys.offload.pstimeout.secs=3
+
 # Bluetooth
 bt.max.hfpclient.connections=1
 vendor.bluetooth.soc=cherokee
