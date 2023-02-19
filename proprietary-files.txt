@@ -106,7 +106,6 @@ vendor/lib64/libbt-hidlclient.so|fd202ec3a2bf6d35d4c41330ab0dd34f97f1af0e
 vendor/lib64/libbtnv.so|97a565f4ad7678525fe112e30e51bf754d02c5fa
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|3f81d703a5d1b635170b01f12b185b2215992df7
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|fff9d4896b3cfea0ca857788cedaac268da4778d
-vendor/lib64/vendor.qti.hardware.fm@1.0.so|c0b04169a439717f8a9ba2e03a2d775dba8272c9
 
 # Bluetooth-Audio - from LA.UM.9.12.r1-10800-SMxx50.0
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|7b858110fc095441bdec79215adabb03000dabce
@@ -296,7 +295,6 @@ vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|b3778cb15a7e852660a4e4e4e2388
 # FM - from LA.QSSI.11.0.r1-08800-qssi.0
 system_ext/lib64/fm_helium.so|68702cf4304128663a1578150a1ed8063d93ca73
 system_ext/lib64/libfm-hci.so|0da384e2fd4809bb39a36fb25d3c6c0325cea0c3
-system_ext/lib64/vendor.qti.hardware.fm@1.0.so|b7dd1354a1415cf49b96b6bb0cc44920c41d2aab
 
 # Gatekeeper - from S62Pro RKQ1.210406.002
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|2e33e885b92e413440511049025497945d6b8484
