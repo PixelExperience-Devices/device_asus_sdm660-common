@@ -202,3 +202,6 @@ ro.lmk.log_stats = true
 
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true
+
+# Zygote
+zygote.critical_window.minute=10
