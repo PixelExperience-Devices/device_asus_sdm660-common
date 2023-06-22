@@ -21,5 +21,8 @@
 
         <!-- Allow more cached apps in the background -->
         <item>activity_manager/max_cached_processes=64</item>
+
+        <!-- Show notification volume control slider separate from ring -->
+        <item>systemui/volume_separate_notification=true</item>
     </string-array>
 </resources>
