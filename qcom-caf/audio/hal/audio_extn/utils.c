@@ -1329,12 +1329,6 @@ int audio_extn_utils_get_app_sample_rate_for_device(
               platform_check_and_update_copp_sample_rate(adev->platform, snd_device,
                                       usecase->stream.out->sample_rate,
                                       &usecase->stream.out->app_type_cfg.sample_rate);
-        } else if (((snd_device != SND_DEVICE_OUT_HEADPHONES_44_1 &&
-                     !audio_is_this_native_usecase(usecase)) &&
-            usecase->stream.out->sample_rate == OUTPUT_SAMPLING_RATE_44100) ||
-            (usecase->stream.out->sample_rate < OUTPUT_SAMPLING_RATE_44100)) {
-            /* Reset to default if no native stream is active*/
-            usecase->stream.out->app_type_cfg.sample_rate = DEFAULT_OUTPUT_SAMPLING_RATE;
         } else if (snd_device == SND_DEVICE_OUT_BT_A2DP) {
                  /*
                   * For a2dp playback get encoder sampling rate and set copp sampling rate,
@@ -1343,8 +1337,12 @@ int audio_extn_utils_get_app_sample_rate_for_device(
                    audio_extn_a2dp_get_enc_sample_rate(&usecase->stream.out->app_type_cfg.sample_rate);
                    ALOGI("%s using %d sample rate rate for A2DP CoPP",
                         __func__, usecase->stream.out->app_type_cfg.sample_rate);
-        } else if (compare_device_type(&usecase->stream.out->device_list,
-                                       AUDIO_DEVICE_OUT_SPEAKER)) {
+        } else if ((((snd_device != SND_DEVICE_OUT_HEADPHONES_44_1 &&
+                     !audio_is_this_native_usecase(usecase)) &&
+            usecase->stream.out->sample_rate == OUTPUT_SAMPLING_RATE_44100) ||
+            (usecase->stream.out->sample_rate < OUTPUT_SAMPLING_RATE_44100)) ||
+            (compare_device_type(&usecase->stream.out->device_list,AUDIO_DEVICE_OUT_SPEAKER))) {
+            /* Reset to default if no native stream is active or default device is speaker*/
             usecase->stream.out->app_type_cfg.sample_rate = DEFAULT_OUTPUT_SAMPLING_RATE;
         }
         audio_extn_btsco_get_sample_rate(snd_device, &usecase->stream.out->app_type_cfg.sample_rate);
@@ -1367,6 +1365,8 @@ int audio_extn_utils_get_app_sample_rate_for_device(
             if (voice_is_in_call_rec_stream(usecase->stream.in)) {
                 audio_extn_btsco_get_sample_rate(usecase->in_snd_device,
                                                  &usecase->stream.in->app_type_cfg.sample_rate);
+            } if (SND_DEVICE_IN_BT_A2DP == snd_device) {
+                audio_extn_a2dp_get_dec_sample_rate(&usecase->stream.in->app_type_cfg.sample_rate);
             } else {
                 audio_extn_btsco_get_sample_rate(snd_device,
                                                  &usecase->stream.in->app_type_cfg.sample_rate);
@@ -2000,9 +2000,11 @@ int get_snd_codec_id(audio_format_t format)
     case AUDIO_FORMAT_WMA:
         id = SND_AUDIOCODEC_WMA;
         break;
+#ifndef AUDIO_DISABLE_COMPRESS_FORMAT
     case AUDIO_FORMAT_WMA_PRO:
         id = SND_AUDIOCODEC_WMA_PRO;
         break;
+#endif
     case AUDIO_FORMAT_MP2:
         id = SND_AUDIOCODEC_MP2;
         break;
@@ -2023,12 +2025,14 @@ int get_snd_codec_id(audio_format_t format)
     case AUDIO_FORMAT_IEC61937:
         id = SND_AUDIOCODEC_IEC61937;
         break;
+#ifndef AUDIO_DISABLE_COMPRESS_FORMAT
     case AUDIO_FORMAT_DSD:
         id = SND_AUDIOCODEC_DSD;
         break;
     case AUDIO_FORMAT_APTX:
         id = SND_AUDIOCODEC_APTX;
         break;
+#endif
     default:
         ALOGE("%s: Unsupported audio format :%x", __func__, format);
     }

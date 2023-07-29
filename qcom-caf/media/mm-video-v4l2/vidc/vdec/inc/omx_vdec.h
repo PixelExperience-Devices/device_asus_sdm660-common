@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------------------
-Copyright (c) 2010 - 2018, The Linux Foundation. All rights reserved.
+Copyright (c) 2010 - 2018, 2021 The Linux Foundation. All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
@@ -789,15 +789,20 @@ struct debug_cap {
     bool in_buffer_log;
     bool out_buffer_log;
     bool out_meta_buffer_log;
+    bool out_cc_buffer_log;
     char infile_name[PROPERTY_VALUE_MAX + 36];
     char outfile_name[PROPERTY_VALUE_MAX + 36];
+    char ccoutfile_name[PROPERTY_VALUE_MAX + 36];
     char out_ymetafile_name[PROPERTY_VALUE_MAX + 36];
     char out_uvmetafile_name[PROPERTY_VALUE_MAX + 36];
     char log_loc[PROPERTY_VALUE_MAX];
     FILE *infile;
     FILE *outfile;
+    FILE *ccoutfile;
     FILE *out_ymeta_file;
     FILE *out_uvmeta_file;
+    int64_t session_id;
+    int seq_count;
 };
 
 struct dynamic_buf_list {
@@ -838,7 +843,7 @@ class omx_vdec: public qc_omx_component
         virtual ~omx_vdec();  // destructor
 
         static int async_message_process (void *context, void* message);
-        static void process_event_cb(void *ctxt,unsigned char id);
+        static void process_event_cb(void *ctxt);
 
         OMX_ERRORTYPE allocate_buffer(
                 OMX_HANDLETYPE hComp,
@@ -963,9 +968,8 @@ class omx_vdec: public qc_omx_component
         void free_extradata();
         int update_resolution(int width, int height, int stride, int scan_lines);
         OMX_ERRORTYPE is_video_session_supported();
+        Signal signal;
 #endif
-        int  m_pipe_in;
-        int  m_pipe_out;
         pthread_t msg_thread_id;
         pthread_t async_thread_id;
         bool is_component_secure();
@@ -1622,6 +1626,7 @@ class omx_vdec: public qc_omx_component
         struct debug_cap m_debug;
         int log_input_buffers(const char *, int, uint64_t);
         int log_output_buffers(OMX_BUFFERHEADERTYPE *);
+        int log_cc_output_buffers(OMX_BUFFERHEADERTYPE *);
 #ifdef _MSM8974_
         void send_codec_config();
 #endif
@@ -1726,40 +1731,7 @@ class omx_vdec: public qc_omx_component
         void prefetchNewBuffers(bool in_reconfig);
         void drainPrefetchedBuffers();
 
-        class client_extradata_info {
-            private:
-                OMX_U32 size; // size of extradata of each frame
-                OMX_U32 buffer_count;
-                OMX_BOOL enable;
 
-            public:
-                client_extradata_info() {
-                    size = VENUS_EXTRADATA_SIZE(4096, 2160);;
-                    buffer_count = 0;
-                    enable = OMX_FALSE;
-                }
-
-                ~client_extradata_info() {
-                }
-
-                bool set_extradata_info(OMX_U32 size, OMX_U32 buffer_count) {
-                    this->size = size;
-                    this->buffer_count = buffer_count;
-                    return true;
-                }
-                void enable_client_extradata(OMX_BOOL enable) {
-                    this->enable = enable;
-                }
-                bool is_client_extradata_enabled() {
-                    return enable;
-                }
-                OMX_U32 getSize() const {
-                    return size;
-                }
-                OMX_U32 getBufferCount() const {
-                    return buffer_count;
-                }
-        };
         client_extradata_info m_client_out_extradata_info;
         bool m_buffer_error;
 

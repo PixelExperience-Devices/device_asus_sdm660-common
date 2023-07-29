@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2019, 2021, The Linux Foundation. All rights reserved.
 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -322,7 +322,11 @@ unsigned int GetSize(const BufferInfo &info, unsigned int alignedw, unsigned int
         size = ALIGN((alignedw * alignedh) + (alignedw * alignedh) / 2 + 1, SIZE_4K);
         break;
       case HAL_PIXEL_FORMAT_YCbCr_420_P010:
-        size = ALIGN((alignedw * alignedh * 2) + (alignedw * alignedh) + 1, SIZE_4K);
+        #ifndef TARGET_USES_GRALLOC4
+          return 0;
+        #else
+          size = ALIGN((alignedw * alignedh * 2) + (alignedw * alignedh) + 1, SIZE_4K);
+        #endif
         break;
       case HAL_PIXEL_FORMAT_YCbCr_420_P010_VENUS:
         size = VENUS_BUFFER_SIZE(COLOR_FMT_P010,
@@ -1460,8 +1464,10 @@ int GetYUVPlaneInfo(const BufferInfo &info, int32_t format, int32_t width, int32
       GetYuvSubSamplingFactor(format, &h_subsampling, &v_subsampling);
       plane_info[0].h_subsampling = 0;
       plane_info[0].v_subsampling = 0;
+      plane_info[0].step = 2;
       plane_info[1].h_subsampling = h_subsampling;
       plane_info[1].v_subsampling = v_subsampling;
+      plane_info[1].step = 4;
       break;
 
     case HAL_PIXEL_FORMAT_YCbCr_420_TP10_UBWC:
@@ -1512,7 +1518,7 @@ int GetYUVPlaneInfo(const BufferInfo &info, int32_t format, int32_t width, int32
       plane_info[0].stride_bytes = static_cast<int32_t>(y_stride);
       plane_info[0].scanlines = static_cast<int32_t>(y_height);
       plane_info[0].size = static_cast<uint32_t>(y_size);
-      plane_info[0].step = 1;
+      plane_info[0].step = 2;
       plane_info[0].h_subsampling = 0;
       plane_info[0].v_subsampling = 0;
 

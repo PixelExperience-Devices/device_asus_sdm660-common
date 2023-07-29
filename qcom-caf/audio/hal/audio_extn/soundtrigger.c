@@ -429,7 +429,7 @@ exit:
             in->is_st_session_active = false;
         memset(buffer, 0, bytes);
         ALOGV("%s: read failed status %d - sleep", __func__, ret);
-        usleep((bytes * 1000000) / (audio_stream_in_frame_size((struct audio_stream_in *)in) *
+        usleep(((useconds_t)bytes * 1000000) / (audio_stream_in_frame_size((struct audio_stream_in *)in) *
                                    in->config.rate));
     }
     return ret;
@@ -561,7 +561,7 @@ void audio_extn_sound_trigger_update_device_status(snd_device_t snd_device,
     struct stream_in *active_input = adev_get_active_input(st_dev->adev);
     audio_source_t  source = (active_input == NULL) ?
                                AUDIO_SOURCE_DEFAULT : active_input->source;
-    if (voice_is_call_state_active_in_call(st_dev->adev)) {
+    if (voice_is_uc_active(st_dev->adev)) {
         ev_info.u.usecase.type = USECASE_TYPE_VOICE_CALL;
     } else if ((st_dev->adev->mode == AUDIO_MODE_IN_COMMUNICATION ||
                 source == AUDIO_SOURCE_VOICE_COMMUNICATION) &&
